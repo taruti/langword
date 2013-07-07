@@ -1,3 +1,4 @@
+// Split text into words for stemming
 package langword
 
 import (
@@ -6,6 +7,8 @@ import (
 	"code.google.com/p/go.text/unicode/norm"
 )
 
+// Scan words in latin alphabets, suitable for bufio.Scanner. Returns lowercase words containing only
+// letters that are unicode normalized (NFC).
 func ScanLatinWords(data []byte, atEOF bool) (advance int, token []byte, err error) {
         // Skip leading spaces.
         start := 0
